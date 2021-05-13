@@ -12,6 +12,7 @@
 /*****************************************************************************
 GPIO registers (PORTA)
 *****************************************************************************/
+#define GPIO_PORTA_DATA_REG       (*((volatile unsigned long *)0x400043FC))
 #define GPIO_PORTA_DIR_REG        (*((volatile unsigned long *)0x40004400))
 #define GPIO_PORTA_AFSEL_REG      (*((volatile unsigned long *)0x40004420))
 #define GPIO_PORTA_PUR_REG        (*((volatile unsigned long *)0x40004510))
@@ -25,6 +26,7 @@ GPIO registers (PORTA)
 /*****************************************************************************
 GPIO registers (PORTB)
 *****************************************************************************/
+#define GPIO_PORTB_DATA_REG       (*((volatile unsigned long *)0x400053FC))
 #define GPIO_PORTB_DIR_REG        (*((volatile unsigned long *)0x40005400))
 #define GPIO_PORTB_AFSEL_REG      (*((volatile unsigned long *)0x40005420))
 #define GPIO_PORTB_PUR_REG        (*((volatile unsigned long *)0x40005510))
@@ -38,6 +40,7 @@ GPIO registers (PORTB)
 /*****************************************************************************
 GPIO registers (PORTC)
 *****************************************************************************/
+#define GPIO_PORTC_DATA_REG       (*((volatile unsigned long *)0x400063FC))
 #define GPIO_PORTC_DIR_REG        (*((volatile unsigned long *)0x40006400))
 #define GPIO_PORTC_AFSEL_REG      (*((volatile unsigned long *)0x40006420))
 #define GPIO_PORTC_PUR_REG        (*((volatile unsigned long *)0x40006510))
@@ -51,6 +54,7 @@ GPIO registers (PORTC)
 /*****************************************************************************
 GPIO registers (PORTD)
 *****************************************************************************/
+#define GPIO_PORTD_DATA_REG       (*((volatile unsigned long *)0x400073FC))
 #define GPIO_PORTD_DIR_REG        (*((volatile unsigned long *)0x40007400))
 #define GPIO_PORTD_AFSEL_REG      (*((volatile unsigned long *)0x40007420))
 #define GPIO_PORTD_PUR_REG        (*((volatile unsigned long *)0x40007510))
@@ -64,6 +68,7 @@ GPIO registers (PORTD)
 /*****************************************************************************
 GPIO registers (PORTE)
 *****************************************************************************/
+#define GPIO_PORTE_DATA_REG       (*((volatile unsigned long *)0x400243FC))
 #define GPIO_PORTE_DIR_REG        (*((volatile unsigned long *)0x40024400))
 #define GPIO_PORTE_AFSEL_REG      (*((volatile unsigned long *)0x40024420))
 #define GPIO_PORTE_PUR_REG        (*((volatile unsigned long *)0x40024510))
@@ -77,6 +82,7 @@ GPIO registers (PORTE)
 /*****************************************************************************
 GPIO registers (PORTF)
 *****************************************************************************/
+#define GPIO_PORTF_DATA_REG       (*((volatile unsigned long *)0x400253FC))
 #define GPIO_PORTF_DIR_REG        (*((volatile unsigned long *)0x40025400))
 #define GPIO_PORTF_AFSEL_REG      (*((volatile unsigned long *)0x40025420))
 #define GPIO_PORTF_PUR_REG        (*((volatile unsigned long *)0x40025510))
