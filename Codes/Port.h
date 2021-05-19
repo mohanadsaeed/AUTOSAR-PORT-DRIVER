@@ -118,10 +118,10 @@
 /*********************************************************************************
  * 						PIN Definitions 														 *
  * *******************************************************************************/
-#define PORTCFG_PORTA 								(Port_PortType)0
-#define PORTCFG_PORTB 								(Port_PortType)1
-#define PORTCFG_PORTC 								(Port_PortType)2
-#define PORTCFG_PORTD 								(Port_PortType)3
+#define PORTCFG_PORTA 						(Port_PortType)0
+#define PORTCFG_PORTB 						(Port_PortType)1
+#define PORTCFG_PORTC 						(Port_PortType)2
+#define PORTCFG_PORTD 						(Port_PortType)3
 #define PORTCFG_PORTE								(Port_PortType)4
 #define PORTCFG_PORTF 								(Port_PortType)5
 #define PORTCFG_PIN0 								(Port_PinType)0
@@ -181,11 +181,11 @@ typedef struct {
 	Port_PinModeType pin_mode;
 	Port_PinModeChangeable pin_mode_changeable;
 	Port_PinAnalog pin_analog;
-} Port_ConfigChannel;
+} Port_ConfigPins;
 
 /* Type of the external data structure containing the initialization data for this module */
 typedef struct {
-	Port_ConfigChannel Pins[PORT_CONFIGURED_CHANNLES];
+	Port_ConfigPins Pins[PORT_CONFIGURED_PINS];
 } Port_ConfigType;
 
 /*******************************************************************************
