@@ -1,13 +1,13 @@
- /******************************************************************************
- *
- * Module: Port
- *
- * File Name: Port.c
- *
- * Description: Source file for TM4C123GH6PM Microcontroller - Port Driver
- *
- * Author: Mohanad K. Saeed
- ******************************************************************************/
+/******************************************************************************
+*
+* Module: Port
+*
+* File Name: Port.c
+*
+* Description: Source file for TM4C123GH6PM Microcontroller - Port Driver
+*
+* Author: Mohanad K. Saeed
+******************************************************************************/
 #include "Port.h"
 #include "Port_Regs.h"
 #include "Det.h"
@@ -48,7 +48,7 @@ void Port_Init(const Port_ConfigType* ConfigPtr)
                 volatile uint32 delay;
 		PortConf = ConfigPtr->Pins;
 		Port_Status = PORT_INITIALIZED;
-		for(Pin_Index=0;Pin_Index<=PORT_CONFIGURED_PINS;Pin_Index++)
+		for(Pin_Index=0;Pin_Index<PORT_CONFIGURED_PINS;Pin_Index++)
 		{
 			switch(PortConf[Pin_Index].port_num)
                         {
@@ -238,7 +238,7 @@ void Port_RefreshPortDirection( void )
 	{
                 uint8 Pin_Index;
 		volatile uint32 * Port_Ptr = NULL_PTR;
-		for(Pin_Index=0;Pin_Index<=PORT_CONFIGURED_PINS;Pin_Index++)
+		for(Pin_Index=0;Pin_Index<PORT_CONFIGURED_PINS;Pin_Index++)
 		{
                         switch(PortConf[Pin_Index].port_num){
 			case PORTCFG_PORTA:
