@@ -51,7 +51,7 @@ void Port_Init(const Port_ConfigType* ConfigPtr)
 		for(Pin_Index=0;Pin_Index<=PORT_CONFIGURED_PINS;Pin_Index++)
 		{
 			switch(PortConf[Pin_Index].port_num)
-            {
+                        {
 				case PORTCFG_PORTA:
 					Port_Ptr=(volatile uint32 *)GPIO_PORTA_BASE_ADDRESS;
 					break;
@@ -71,7 +71,7 @@ void Port_Init(const Port_ConfigType* ConfigPtr)
 					Port_Ptr=(volatile uint32 *)GPIO_PORTF_BASE_ADDRESS;
 					break;
 				default:
-                    break;
+                                  break;
 			}
 			/* Enable clock for PORT and allow time for clock to start*/
 			SYSCTL_REGCGC2_REG |= (STD_ON<<(PortConf[Pin_Index].port_num));
@@ -175,7 +175,7 @@ void Port_SetPinDirection(Port_PinType Pin, Port_PinDirectionType Direction )
 	{
 		volatile uint32 * Port_Ptr = NULL_PTR;
 		switch(PortConf[Pin].port_num){
-			case PORTCFG_PORTA:
+                        case PORTCFG_PORTA:
 				Port_Ptr=(volatile uint32 *)GPIO_PORTA_BASE_ADDRESS;
 				break;
 			case PORTCFG_PORTB:
@@ -315,7 +315,6 @@ void Port_GetVersionInfo(Std_VersionInfoType* versioninfo)
 	#endif /* (DIO_DEV_ERROR_DETECT == STD_ON) */
 	if (error==FALSE)
 	{
-	{
 		/* Copy the vendor Id */
 		versioninfo->vendorID = (uint16)PORT_VENDOR_ID;
 		/* Copy the module Id */
@@ -326,7 +325,6 @@ void Port_GetVersionInfo(Std_VersionInfoType* versioninfo)
 		versioninfo->sw_minor_version = (uint8)PORT_SW_MINOR_VERSION;
 		/* Copy Software Patch Version */
 		versioninfo->sw_patch_version = (uint8)PORT_SW_PATCH_VERSION;
-	}
 	}
 	else
 	{
@@ -378,8 +376,8 @@ void Port_SetPinMode(Port_PinType Pin, Port_PinModeType Mode)
 		else
 		{
 		}
-		//Invalid mode checkk
-		if (Mode > 14)
+		/* Check if the pin mode is invalid */
+		if (PORT_MODES_NUMBER < mode)
 		{
 			Det_ReportError(PORT_MODULE_ID, PORT_INSTANCE_ID,PORT_SET_PIN_DIRECTION_SID,PORT_E_PARAM_INVALID_MODE);
 			error = TRUE;

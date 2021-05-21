@@ -36,6 +36,7 @@
 
 #define PORT_CONFIGURED_PINS					           (44U) /*Excluded the 4 pins of JTAG*/
 
+#define PORT_MODES_NUMBER                                                  (14U)
 /*******************************************************************************
  *                    PINS DIRECTION CONFIGURATIONS                            *
  *******************************************************************************/
@@ -304,7 +305,7 @@
 /*******************************************************************************
  *                        PINS MODE CONFIGURATIONS                             *
  *******************************************************************************/
-#define PORTA_PIN0_MODE				             (Port_PinModeType)0
+#define PORTA_PIN0_MODE				             (Port_PinModeType)0 /*GPIO*/
 #define PORTA_PIN1_MODE					     (Port_PinModeType)0
 #define PORTA_PIN2_MODE				             (Port_PinModeType)0
 #define PORTA_PIN3_MODE				             (Port_PinModeType)0

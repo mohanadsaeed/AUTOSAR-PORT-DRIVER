@@ -95,43 +95,25 @@
  *                      DET Error Codes                                        *
  *******************************************************************************/
 /* Invalid Port Pin ID requested */
-#define PORT_E_PARAM_PIN 			   				 (uint8)0x0A
+#define PORT_E_PARAM_PIN 			   	             (uint8)0x0A
 
 /* Port Pin not configured as changeable */
-#define PORT_E_DIRECTION_UNCHANGEABLE  				 (uint8)0x0B
+#define PORT_E_DIRECTION_UNCHANGEABLE  				     (uint8)0x0B
 
 /* API Port_Init service called with wrong parameter */
-#define PORT_E_PARAM_CONFIG 		   				 (uint8)0x0C
+#define PORT_E_PARAM_CONFIG 		   			     (uint8)0x0C
 
 /* API Port_SetPinMode service called with invalid mode */
-#define PORT_E_PARAM_INVALID_MODE 	   				 (uint8)0x0D
+#define PORT_E_PARAM_INVALID_MODE 	   			     (uint8)0x0D
 
 /* API Port_SetPinMode service called when mode is unchangeable */
-#define PORT_E_MODE_UNCHANGEABLE 	   				 (uint8)0x0E
+#define PORT_E_MODE_UNCHANGEABLE 	   		             (uint8)0x0E
 
 /* API service called without module initialization */
-#define PORT_E_UNINIT 				   				 (uint8)0x0F
+#define PORT_E_UNINIT 				   	             (uint8)0x0F
 
 /* APIs called with a Null Pointer */
-#define PORT_E_PARAM_POINTER 		   				 (uint8)0x10
-
-/*********************************************************************************
- * 						PIN Definitions 														 *
- * *******************************************************************************/
-#define PORTCFG_PORTA 						(Port_PortType)0
-#define PORTCFG_PORTB 						(Port_PortType)1
-#define PORTCFG_PORTC 						(Port_PortType)2
-#define PORTCFG_PORTD 						(Port_PortType)3
-#define PORTCFG_PORTE								(Port_PortType)4
-#define PORTCFG_PORTF 								(Port_PortType)5
-#define PORTCFG_PIN0 								(Port_PinType)0
-#define PORTCFG_PIN1 								(Port_PinType)1
-#define PORTCFG_PIN2 								(Port_PinType)2
-#define PORTCFG_PIN3 								(Port_PinType)3
-#define PORTCFG_PIN4 								(Port_PinType)4
-#define PORTCFG_PIN5 								(Port_PinType)5
-#define PORTCFG_PIN6 								(Port_PinType)6
-#define PORTCFG_PIN7 								(Port_PinType)7
+#define PORT_E_PARAM_POINTER 		   		             (uint8)0x10
 
 /*******************************************************************************
  *                              Module Data Types                              *
@@ -218,3 +200,21 @@ void Port_SetPinMode(Port_PinType Pin, Port_PinModeType Mode);
 extern const Port_ConfigType Port_Configuration;
 
 #endif
+
+/*********************************************************************************
+ * 			        PIN Definitions 														 *
+ * *******************************************************************************/
+#define PORTCFG_PORTA 						(Port_PortType)0
+#define PORTCFG_PORTB 						(Port_PortType)1
+#define PORTCFG_PORTC 						(Port_PortType)2
+#define PORTCFG_PORTD 						(Port_PortType)3
+#define PORTCFG_PORTE						(Port_PortType)4
+#define PORTCFG_PORTF 						(Port_PortType)5
+#define PORTCFG_PIN0 						 (Port_PinType)0
+#define PORTCFG_PIN1 						 (Port_PinType)1
+#define PORTCFG_PIN2 						 (Port_PinType)2
+#define PORTCFG_PIN3 						 (Port_PinType)3
+#define PORTCFG_PIN4 						 (Port_PinType)4
+#define PORTCFG_PIN5 						 (Port_PinType)5
+#define PORTCFG_PIN6 						 (Port_PinType)6
+#define PORTCFG_PIN7 						 (Port_PinType)7
