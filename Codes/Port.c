@@ -51,7 +51,7 @@ void Port_Init(const Port_ConfigType* ConfigPtr)
 		for(Pin_Index=0;Pin_Index<=PORT_CONFIGURED_PINS;Pin_Index++)
 		{
 			switch(PortConf[Pin_Index].port_num)
-                        {
+            {
 				case PORTCFG_PORTA:
 					Port_Ptr=(volatile uint32 *)GPIO_PORTA_BASE_ADDRESS;
 					break;
@@ -71,7 +71,7 @@ void Port_Init(const Port_ConfigType* ConfigPtr)
 					Port_Ptr=(volatile uint32 *)GPIO_PORTF_BASE_ADDRESS;
 					break;
 				default:
-                                  break;
+                    break;
 			}
 			/* Enable clock for PORT and allow time for clock to start*/
 			SYSCTL_REGCGC2_REG |= (STD_ON<<(PortConf[Pin_Index].port_num));

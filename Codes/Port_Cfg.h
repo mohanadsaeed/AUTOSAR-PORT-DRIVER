@@ -6,7 +6,7 @@
  *
  * Description: Post Build Configuration Source file for TM4C123GH6PM Microcontroller - Port Driver
  *
- * Author: Mohamed Tarek
+ * Author: Mohanad K. Saeed
  ******************************************************************************/
  
 #ifndef PORT_CFG_H_
