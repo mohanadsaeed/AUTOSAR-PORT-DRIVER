@@ -115,7 +115,12 @@ void Port_Init(const Port_ConfigType* ConfigPtr)
 			/* Insert if the pin digital or not */
 			*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_DEN_REG_OFFSET)&=~(1<<PortConf[Pin_Index].pin_num);
 			*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_DEN_REG_OFFSET)|=(!PortConf[Pin_Index].pin_analog<<PortConf[Pin_Index].pin_num);
-		}
+		
+                        /* Insert if the pin initial value */
+			*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_DATA_REG_OFFSET)&=~(1<<PortConf[Pin_Index].pin_num);
+			*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_DATA_REG_OFFSET)|=(PortConf[Pin_Index].pin_initial_level<<PortConf[Pin_Index].pin_num);
+                
+                }
 		}
 	}
 	else
