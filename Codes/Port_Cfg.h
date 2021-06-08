@@ -37,6 +37,10 @@
 #define PORT_CONFIGURED_PINS					           (44U) /*Excluded the 4 pins of JTAG*/
 
 #define PORT_MODES_NUMBER                                                  (14U)
+   
+ /*Special Number For ADC Mode*/
+#define PORT_MODE_ADC							   (10U)
+
 /*******************************************************************************
  *                    PINS DIRECTION CONFIGURATIONS                            *
  *******************************************************************************/

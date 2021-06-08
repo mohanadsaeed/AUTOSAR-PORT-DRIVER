@@ -116,7 +116,7 @@ void Port_Init(const Port_ConfigType* ConfigPtr)
 			*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_DEN_REG_OFFSET)&=~(1<<PortConf[Pin_Index].pin_num);
 			*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_DEN_REG_OFFSET)|=(!PortConf[Pin_Index].pin_analog<<PortConf[Pin_Index].pin_num);
 		
-                        /* Insert if the pin initial value */
+			/* Insert if the pin initial value */
 			*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_DATA_REG_OFFSET)&=~(1<<PortConf[Pin_Index].pin_num);
 			*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_DATA_REG_OFFSET)|=(PortConf[Pin_Index].pin_initial_level<<PortConf[Pin_Index].pin_num);
                 
@@ -419,13 +419,35 @@ void Port_SetPinMode(Port_PinType Pin, Port_PinModeType Mode)
 			default:
                                 break;
 		}
-		/* Choose the mode of the pin */
-		*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_PCTL_REG_OFFSET)&=~(0x0000000F<<(PortConf[Pin].pin_num)*4);
-		*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_PCTL_REG_OFFSET)|=((uint32)Mode<<(PortConf[Pin].pin_num)*4);
+		if (Mode==PORT_MODE_ADC)
+		{
+			/* Insert if the pin digital or not */
+			*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_DEN_REG_OFFSET)&=~(1<<PortConf[Pin].pin_num);
+			*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_DEN_REG_OFFSET)|=(0<<PortConf[Pin].pin_num);
+			
+			/* Insert if the pin analog or not */
+			*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_AMSEL_REG_OFFSET)&=~(1<<PortConf[Pin].pin_num);
+			*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_AMSEL_REG_OFFSET)|=(1<<PortConf[Pin].pin_num);
+		}
+		else
+		{
+			/* Insert if the pin digital or not */
+			*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_DEN_REG_OFFSET)&=~(1<<PortConf[Pin].pin_num);
+			*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_DEN_REG_OFFSET)|=(1<<PortConf[Pin].pin_num);
+			
+			/* Insert if the pin analog or not */
+			*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_AMSEL_REG_OFFSET)&=~(1<<PortConf[Pin].pin_num);
+			*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_AMSEL_REG_OFFSET)|=(0<<PortConf[Pin].pin_num);
+                        
+                        /* Choose the mode of the pin */
+                        *(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_PCTL_REG_OFFSET)&=~(0x0000000F<<(PortConf[Pin].pin_num)*4);
+                        *(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_PCTL_REG_OFFSET)|=((uint32)Mode<<(PortConf[Pin].pin_num)*4);
+		}
+		
 		/* Enable Alternative functions of pin or not */
 		state=(Mode!=0);
 		*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_AFSEL_REG_OFFSET)&=~(1<<PortConf[Pin].pin_num);
-		*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_AFSEL_REG_OFFSET)|=(state<<PortConf[Pin].pin_num);
+		*(volatile uint32 *)((volatile uint8 *)Port_Ptr + PORT_AFSEL_REG_OFFSET)|=(state<<PortConf[Pin].pin_num);		
 	}
 	}
 }
